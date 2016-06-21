@@ -1,5 +1,7 @@
 package com.asat.amesoft.asat.Models;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Jorge on 20/06/2016.
  */
@@ -10,14 +12,16 @@ public class Notifications_Item {
     private String title;
     private String text;
     private String url;
+    private Bitmap icon;
 
 
-    public Notifications_Item(String id, String date, String title, String text, String url) {
+    public Notifications_Item(String id, String date, String title, String text, String url, Bitmap icon) {
         this.id = id;
         this.date = date;
         this.title = title;
         this.text = text;
         this.url = url;
+        this.icon = icon;
     }
 
     public String getId() {
@@ -58,5 +62,13 @@ public class Notifications_Item {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Bitmap getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Bitmap icon) {
+        this.icon = icon;
     }
 }

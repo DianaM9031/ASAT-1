@@ -2,10 +2,13 @@ package com.asat.amesoft.asat.fragments;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -106,12 +109,15 @@ public class NotificationsFragment extends Fragment {
                 Log.v("Lista",notifications.toString());
                 for(int i=0; i<notifications.length();i++){
                     JSONObject item = notifications.getJSONObject(i).getJSONObject("item");
+                    Log.v("ITEM ",item.names().toString());
                     lista.add(
-                            new Notifications_Item(item.getString("item_id"),
+                            new Notifications_Item(
+                                    item.getString("item_id"),
                                     item.getString("item_date"),
                                     item.getString("item_title"),
                                     item.getString("item_text"),
-                                    item.getString("item_url")
+                                    item.getString("item_url"),
+                                    decodeImage(item.getString("item_img"))
                             )
                     );
 
@@ -144,6 +150,11 @@ public class NotificationsFragment extends Fragment {
         } catch (JSONException e) {
 
         }
+    }
+
+    private Bitmap decodeImage(String encoded){
+        byte[] decodedImage = Base64.decode(encoded, Base64.CRLF);
+        return BitmapFactory.decodeByteArray(decodedImage, 0, decodedImage.length);
     }
 
 }

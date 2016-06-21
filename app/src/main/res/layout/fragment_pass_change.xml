@@ -111,8 +111,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
                 <Button
+
                     android:id="@+id/new_pass_submit"
-                    style="?android:textAppearanceSmall"
+                    style="@style/AsatButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:enabled="false"

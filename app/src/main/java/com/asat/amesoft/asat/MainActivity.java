@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -41,7 +42,9 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class MainActivity extends AppCompatActivity{
+
 
     private static final int MY_PERMISSIONS_EXTERNAL_STORAGE = 1 ;
     Toolbar toolbar;
